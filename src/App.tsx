@@ -8,16 +8,17 @@ import {getNextStatus} from "./service/todo-service";
 
 function App() {
 
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]); // erstelle das Objekt todos und nehme die funktion setTodos
+                                                    // setze diese mit useState auf ein leeres Array
 
-  useEffect(() => {
-      getAllTodo()
-  }, [])
+  useEffect(() => {                                 // führe das in der geschweiften klammer aus
+       getAllTodo()                                 // ausführen der Funktionen
+  }, [])                                            // nur einmal bei leeren klammern oder bedingung in den Klammern
 
   const getAllTodo = () => {
-      axios.get("/api/todo")
-          .then((response) => response.data)
-          .then(setTodos)
+      axios.get("/api/todo")                            // hole dir die todos vom backend
+          .then((response) => response.data)            // belege response mit daten aus den todos( antwort vom Backend)
+          .then(setTodos)                               // setze die Response vom backend als neuen Inhalt von todos
   }
 
   const addTodo = (description: string) => {
