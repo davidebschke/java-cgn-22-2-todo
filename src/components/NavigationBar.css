@@ -4,7 +4,7 @@
     border: black 2px solid;
     padding:2em;
     background-color: lightslategrey;
-    border-radius: 2em;
+    border-radius: 80em;
 
 }
 .Navi{
@@ -16,7 +16,8 @@
     border-radius: 2em;
     justify-content: center;
     align-items: center;
-    display: flex;
+    display: flex ;
+    box-sizing: border-box;
     box-shadow: 3px 3px 3px 3px lightcoral;
 
 
