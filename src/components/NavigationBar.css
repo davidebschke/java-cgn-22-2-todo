@@ -4,11 +4,22 @@
     border: black 2px solid;
     padding:2em;
     background-color: lightslategrey;
-    box-shadow: azure inset ;
+    border-radius: 2em;
 
 }
-NavLink{
+.Navi{
     border: black 2px solid;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    background-color: lightseagreen;
+    border-radius: 2em;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow: 3px 3px 3px 3px lightcoral;
+
+
 
 }
 
