@@ -8,7 +8,7 @@ export default function ToDoDone(){
         <div>
 
 
-            toDoList
+            toDoDone
 
 
         </div>

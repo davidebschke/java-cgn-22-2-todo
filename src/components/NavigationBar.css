@@ -1,0 +1,14 @@
+.navigation-bar {
+    display: flex;
+    justify-content: space-around;
+    border: black 2px solid;
+    padding:2em;
+    background-color: lightslategrey;
+    box-shadow: azure inset ;
+
+}
+NavLink{
+    border: black 2px solid;
+
+}
+

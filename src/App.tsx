@@ -4,38 +4,64 @@ import './NavigationenBar.css';
 import ToDoList from "./toDoList";
 import InProgress from "./InProgress";
 import ToDoDone from "./toDoDone";
-import BoardOverview from "./components/BoardOverview";
-
+import {BoardOverview} from "./components/BoardOverview";
+import BoardPage from "./components/BoardPage";
+import NavigationBar from "./components/NavigationBar";
 import AddTodo from "./components/AddTodo";
 import useTodos from './useTodos';
-import {HashRouter, NavLink, Route, Router} from "react-router-dom";
+import {HashRouter, NavLink, Route, Router, Routes,} from "react-router-dom";
 
 
 function App() {
 
 
+
     const {todos, deleteTodo, advanceTodo, addTodo} = useTodos();
 
-    return (<HashRouter>
-            <div>
-                <NavLink to={"/Home"}>Home</NavLink>
-                <NavLink to={"/ToDO"}>toDOs</NavLink>
-                <NavLink to={"/INProgress"}>InProgress</NavLink>
-                <NavLink to={"/Done"}>Done</NavLink></div>
+    return (
 
 
-            <Route path={"/home"} element={<App/>}/>
-            <Route path={"/to-do"} element={<ToDoList/>}/>
-            <Route path={"/in-progress"} element={<InProgress/>}/>
-            <Route path={"/done"} element={<ToDoDone/>}/>
+        <HashRouter>
+            <h1>Super Todo App with Routes</h1>
+            <NavigationBar/>
+            <Routes>
+                <Route path={"/"}
+                       element={<BoardOverview
+                           todos={todos}
+                           advanceTodo={advanceTodo}
+                           deleteTodo={deleteTodo}/>}/>
+                <Route path={"/todos/open"} element={<BoardPage
+                    todos={todos}
+                    status={"OPEN"}
+                    advanceTodo={advanceTodo}
+                    deleteTodo={deleteTodo}
+                />
+                }/>
+                <Route path={"/todos/in-progress"} element={<BoardPage
+                    todos={todos}
+                    status={"IN_PROGRESS"}
+                    advanceTodo={advanceTodo}
+                    deleteTodo={deleteTodo}
+                />
+                }/>
+                <Route path={"/todos/done"} element={<BoardPage
+                    todos={todos}
+                    status={"DONE"}
+                    advanceTodo={advanceTodo}
+                    deleteTodo={deleteTodo}
+                />
+                }/>
+            </Routes>
+            <AddTodo addTodo={addTodo}/>
+        </HashRouter>
 
 
-            <div>
-                <BoardOverview todos={todos} advanceTodo={advanceTodo} deleteTodo={deleteTodo}/>
-                <AddTodo addTodo={addTodo}/>
-            </div></HashRouter>
 
-    );
-}
+
+
+
+
+    );}
+
 
 export default App;
